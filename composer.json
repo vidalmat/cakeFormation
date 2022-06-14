@@ -1,0 +1,11 @@
+{
+    "require-dev": {
+        "cakephp/debug_kit": "^2.0",
+        "cakephp/contact-manager": "1.2.*"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
+}
