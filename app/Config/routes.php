@@ -32,6 +32,20 @@
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
+	Router::connect('/ajouter', array('controller' => 'links', 'action' => 'add'));
+	Router::connect('/s/*', array('controller' => 'links', 'action' => 'view'));
+	// Router::connect('/s/:id', 
+	// 	array('controller' => 'links', 'action' => 'v'), 
+	// 	array('pass' => array(('id'), 'id' => '[0-9+]')
+	// ));
+
+
+	Router::connect('/tt/:slug-:id', 
+		array('controller' => 'links', 'action' => 'test'), 
+		array('pass' => array('slug', 'id'), 'slug' => '[a-z0-9\-]+', 'id' => '[0-9\-]+')
+	);
+
+
 /**
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.

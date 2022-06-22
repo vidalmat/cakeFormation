@@ -40,10 +40,19 @@
     <!-- /Navigation -->
 
 	<header>
+
 		<p>&nbsp;</p>
-		<div class="container">
-			<div class="row"><?= $this->fetch('content') ?></div>
-		</div>
+
+		<article class="grid-container">
+			<div class="grid-x align-center">
+				<div class="cell medium-8">
+					<div class="blog-post">
+						<div class="row"><?= $this->fetch('content') ?></div>
+					</div>
+				</div>
+			</div>
+		</article>
+		
 	</header>
     
 	<?= $this->fetch('script') ?></div>
