@@ -53,6 +53,18 @@
             die();
         }
 
+        // Personnaliser les routes admin et member dans Config/core.php ligne 124
+        public function admin_index() {
+            $links = $this->Link->find('all');
+            $this->set(compact('links'));
+        }
+
+        // Personnaliser les routes admin et member dans Config/core.php ligne 124
+        public function member_index() {
+            $links = $this->Link->find('all');
+            $this->set(compact('links'));
+        }
+
     }
 
 ?>
