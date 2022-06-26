@@ -5,7 +5,8 @@
         public function add() {
 
             // Vérifie que le navigateur envoie une requête de type post
-            // Le résultat apparaîtra en false, après avoir cliqué sur le submit, il apparaîtra en true 
+            // Le résultat apparaîtra en false, 
+            // Après avoir cliqué sur le submit, il apparaîtra en true 
             // debug($this->request->is('post'));
 
             if($this->request->is('post')) {
@@ -22,18 +23,28 @@
                     // Si elle n'est pas en BDD, on créé un enregistrement 
                     // Créer le lien 
                     $this->Link->create($this->request->data, true);
-                    $this->Link->save(null, true, array('url'));
-                    $id = $this->Link->id;
 
+                    // Tips : le second paramètre après null, donc true, demande la validation (voir dans Model/Link)
+                    // Donc pour vérifier si le save sera valide grâce à la méthode, je mets tout cela dans un if()
+                    if($this->Link->save(null, true, array('url'))) {
+                        $id = $this->Link->id;
+
+                        // Ancienne version
+                        // $this->set('id', $id);
+                        $this->set(compact('id'));
+                        $this->render('add-success');
+                    };
                 }else{
 
                     // J'affiche à l'utilisateur, le lien généré 
                     // Récupérer le lien 
                     $id = $link['Link']['id'];
+                
+                    // Ancienne version
+                    // $this->set('id', $id);
+                    $this->set(compact('id'));
+                    $this->render('add-success');
                 }
-                // $this->set('id', $id);
-                $this->set(compact('id'));
-                $this->render('add-success');
             }
         }
 

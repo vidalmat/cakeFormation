@@ -4,7 +4,7 @@
 <?= $this->Form->create("Link"); ?>
 
 <!-- Création de l'input -->
-<?= $this->Form->input("url", array('label' => 'Votre lien', 'placeholder' => 'http:/mon-lien.fr')); ?>
+<?= $this->Form->input("url", array('label' => 'Votre lien', 'placeholder' => 'http://mon-lien.fr')); ?>
 
 <!-- Création d'un submit -->
 <?= $this->Form->end("Raccourcir le lien"); ?>
